@@ -1,0 +1,133 @@
+---
+interface MenuItem {
+    name: string,
+    link: string
+}
+
+interface ScrollColorProps {
+    scrollY: number,
+    primary: string,
+    alternative: string,
+}
+
+export interface Props {
+    menuItems: MenuItem[],
+    navColor: ScrollColorProps,
+    logoColor: ScrollColorProps,
+    menuColor: ScrollColorProps
+}
+
+const { menuItems, logoColor, menuColor, navColor } = Astro.props
+
+const pathname = new URL(Astro.request.url).pathname;
+
+---
+<!-- NavBar BEGINS -->
+<nav data-menu-color={JSON.stringify(navColor)} class={`z-10 fixed inset-x-0 px-4 md:px-6 py-4 flex flex-wrap gap-y-4 ${navColor.alternative} transition-color ease-in-out duration-300`}>
+    <a data-menu-color={JSON.stringify(logoColor)} class={`flex items-center justify-center gap-x-2 font-semibold text-2xl ${logoColor.alternative} transition-color ease-in-out duration-300`} href="/" aria-label="Home">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 icon icon-tabler icon-tabler-cup" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 11h14v-3h-14z"></path>
+            <path d="M17.5 11l-1.5 10h-8l-1.5 -10"></path>
+            <path d="M6 8v-1a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v1"></path>
+            <path d="M15 5v-2"></path>
+        </svg>
+        <span class="hidden sm:block ">Astral Coffee</span>
+    </a>
+    <ul data-menu-color={JSON.stringify(menuColor)} class={`hidden md:flex grow justify-end items-center gap-x-6 ${menuColor.alternative} transition-color ease-in-out duration-300`}>
+        {
+            menuItems.map(({name, link}) => (
+                <li>
+                    <a class={`text-lg ${pathname === link ? 'font-bold underline' : 'font-light hover:font-bold'} transition-all ease-in-out duration-100`} href={link}>
+                        {name}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+    <div class="flex grow md:hidden justify-end items-center">
+        <button data-menu-color={JSON.stringify(menuColor)} id="menu-ham" class={`${menuColor.alternative} transition-color ease-in-out duration-300`} aria-label="Menu Button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 6l16 0"></path>
+                <path d="M4 12l16 0"></path>
+                <path d="M4 18l16 0"></path>
+             </svg>
+        </button>
+    </div>
+    <ul id="mobile-links" class="hidden w-full px-3 py-4 flex-col grow md:hidden gap-y-2 bg-amber-800 bg-opacity-40 rounded-lg transition-all ease-in-out duration-300">
+        {
+            menuItems.map(({name, link}) => (
+                <li class={`w-full rounded-md text-white ${pathname === link ? 'bg-amber-800 font-semibold': ''}`}>
+                    <a class="w-full py-2 flex justify-center" href={link}>
+                        {name}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
+<script>
+
+    class ColorScroll {
+
+        element: HTMLElement
+        primaryColor: string
+        alternativeColor: string
+
+        constructor(
+            limitY: number,
+            element: HTMLElement,
+            primaryColor: string,
+            alternativeColor: string
+        ) {
+            this.element = element
+            this.primaryColor = primaryColor
+            this.alternativeColor = alternativeColor
+
+            window.addEventListener('scroll', (e) => {
+                if(window.scrollY > limitY) {
+                    this.setPrimarycolor()
+                } else {
+                    this.setAlternativeColor()
+                }
+            })
+        }
+
+        setPrimarycolor () {
+            this.element.classList.add(this.primaryColor)
+            this.element.classList.remove(this.alternativeColor)
+        }
+
+        setAlternativeColor () {
+            this.element.classList.remove(this.primaryColor)
+            this.element.classList.add(this.alternativeColor)
+        }
+
+    }
+
+    const hamburger: Element|null = document.querySelector('#menu-ham')
+    const mobileMenu: Element|null = document.querySelector('#mobile-links')
+
+
+    hamburger?.addEventListener('click', (): void => {
+        mobileMenu?.classList.toggle('flex')
+        mobileMenu?.classList.toggle('hidden')
+    })
+
+    const elements = document.querySelectorAll<HTMLElement>('[data-menu-color]')
+
+    elements.forEach((element: HTMLElement) => {
+        try {
+            
+            const {primary, alternative, scrollY} = JSON.parse(String(element.dataset.menuColor))
+
+            new ColorScroll(scrollY, element, primary, alternative)
+            
+        } catch (e) {
+            console.log(e)
+        }
+    })
+
+</script>
+<!-- NavBar ENDS -->

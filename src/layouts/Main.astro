@@ -1,0 +1,58 @@
+---
+import { Image } from '@astrojs/image/components'
+
+import NavBar from '../components/NavBar.astro'
+
+import menuItems from '../fixtures/menuItems.json'
+
+export interface Props {
+    title: string
+}
+
+const { title } = Astro.props
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+</head>
+<body>
+    <NavBar 
+        menuItems={menuItems} 
+        navColor={{
+            scrollY: 150,
+            primary: "bg-white",
+            alternative: "bg-transparent"
+        }}
+        logoColor={{
+            scrollY: 150,
+            primary: "text-amber-800",
+            alternative: "text-white"
+        }}
+        menuColor={{
+            scrollY: 150,
+            primary: "text-amber-800",
+            alternative: "text-white"
+        }}
+    />
+    
+    
+    <div 
+        class="relative group cursor-pointer w-full h-[80vh] pt-20"
+    >
+        <img class="absolute top-0 w-full h-[80vh] object-cover scale-120 grayscale-0 group-hover:grayscale group-hover:scale-110 transition-all ease-in-out duration-700" src="/images/coffee-beans-texture.jpg" alt="">
+        <div class="font-serif relative h-full w-full flex flex-col items-center justify-center gap-y-10">
+            <h1 class="text-white text-5xl md:text-7xl group-hover:text-green-400 transition-all ease-in-out duration-700">El Verdadero</h1>
+            <h2 class="text-white text-7xl md:text-9xl group-hover:text-green-600 transition-all ease-in-out duration-700">Café</h2>
+        </div>
+    </div>
+    
+    <slot />
+</body>
+</html>
