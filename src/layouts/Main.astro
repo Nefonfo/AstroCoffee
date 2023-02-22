@@ -1,9 +1,10 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Picture } from '@astrojs/image/components'
 
 import NavBar from '../components/NavBar.astro'
 
 import menuItems from '../fixtures/menuItems.json'
+import CoffeeImage from '../images/coffee-beans-texture.jpg'
 
 export interface Props {
     title: string
@@ -46,7 +47,15 @@ const { title } = Astro.props
     <div 
         class="relative group cursor-pointer w-full h-[80vh] pt-20"
     >
-        <img class="absolute top-0 w-full h-[80vh] object-cover scale-120 grayscale-0 group-hover:grayscale group-hover:scale-110 transition-all ease-in-out duration-700" src="./images/coffee-beans-texture.jpg" alt="">
+        <Picture 
+            class="absolute top-0 w-full h-[80vh] object-cover scale-120 grayscale-0 group-hover:grayscale group-hover:scale-110 transition-all ease-in-out duration-700" 
+            src={CoffeeImage}
+            alt="Coffee"
+            widths={[400, 800, 1200]} 
+            sizes="(max-width: 800px) 100vw, 800px" 
+            formats={['avif', 'jpeg', 'png', 'webp']}
+            aspectRatio="1:1"
+        />
         <div class="font-serif relative h-full w-full flex flex-col items-center justify-center gap-y-10">
             <h1 class="text-white text-5xl md:text-7xl group-hover:text-green-400 transition-all ease-in-out duration-700">El Verdadero</h1>
             <h2 class="text-white text-7xl md:text-9xl group-hover:text-green-600 transition-all ease-in-out duration-700">Café</h2>
