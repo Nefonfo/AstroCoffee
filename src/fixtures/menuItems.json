@@ -1,22 +1,22 @@
 [
     {
         "name": "Home",
-        "link": "/"
+        "link": ""
     },
     {
         "name": "About Us",
-        "link": "/about-us/"
+        "link": "about-us"
     },
     {
         "name": "Menu",
-        "link": "/menu/"
+        "link": "menu"
     },
     {
         "name": "Stores",
-        "link": "/stores/"
+        "link": "stores"
     },
     {
         "name": "Contact Us",
-        "link": "/contact-us/"
+        "link": "contact-us"
     }
 ]
