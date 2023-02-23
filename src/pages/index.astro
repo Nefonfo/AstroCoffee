@@ -1,6 +1,58 @@
 ---
+import { Picture } from "@astrojs/image/components";
+import { NavPositionEnum } from "../components/NavBar.astro";
 import Main from "../layouts/Main.astro"
 ---
-<Main title="Bienvenido">
-
+<Main 
+    title="Welcome"
+    metaDescription="This is a website part of Nefonfo's portafolio. Inspired in a Coffee Shop."
+    navBarStyles={{
+        navPosition: NavPositionEnum.fixed,
+        navColor:{
+            scrollY: 150,
+            primary: "bg-white",
+            alternative: "bg-transparent"
+        },
+        logoColor:{
+            scrollY: 150,
+            primary: "text-amber-800",
+            alternative: "text-white"
+        },
+        menuColor:{
+            scrollY: 150,
+            primary: "text-amber-800",
+            alternative: "text-amber-400"
+        }
+    }}
+>
+    <div class="group relative w-full h-[80vh] pt-20">
+        <Picture 
+            class="absolute top-0 w-full h-[80vh] object-cover grayscale-0 group-hover:grayscale transition-all ease-out duration-700" 
+            src={import('../images/coffee-cup.jpg')}
+            alt="Coffee Banner"
+            widths={[600, 1200, 1800]}
+            sizes="(max-width: 800px) 100vw, 800px"
+            format='webp'
+        />
+        <div class="font-mono relative h-full w-full flex flex-col items-center justify-center gap-y-10">
+            <h1 class="text-center text-white text-5xl md:text-7xl group-hover:text-amber-300 transition-colors ease-in-out duration-700">The Real</h1>
+            <h2 class="text-center text-white text-7xl md:text-9xl group-hover:text-amber-300 transition-colors ease-in-out duration-700">Coffee</h2>
+        </div>
+    </div>
+    <div class="w-full flex flex-wrap justify-around items-center px-8 md:px-12 py-10 md:py-16 gap-x-2 gap-y-6">
+        <div class="w-full md:w-[25rem] lg:w-[35rem] flex justify-center overflow-hidden">
+            <Picture 
+                class="object-contain hover:scale-125 transition-all ease-in-out duration-700"
+                src={import('../images/coffee-plant.jpg')} 
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format='webp'
+                alt="Coffee Plant"
+            />
+        </div>
+        <div class="w-full lg:w-6/12 flex flex-col gap-y-8">
+            <h1 class="text-center lg:text-left font-serif text-4xl md:text-6xl text-green-800">Our Legacy</h1>
+            <p class="leading-relaxed md:leading-loose lg:leading-loose text-lg md:text-xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe incidunt perferendis nihil veniam, tenetur odit quo expedita, rerum reprehenderit, deleniti itaque sed ab. Neque expedita nam labore excepturi ex enim.</p>
+        </div>
+    </div>
 </Main>

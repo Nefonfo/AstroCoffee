@@ -1,0 +1,27 @@
+---
+import { NavPositionEnum } from "../components/NavBar.astro";
+import Main from "../layouts/Main.astro"
+---
+<Main 
+    title="Sobre Nosotros"
+    navBarStyles={{
+        navPosition: NavPositionEnum.static,
+        navColor:{
+            scrollY: 150,
+            primary: "bg-white",
+            alternative: "bg-red-600"
+        },
+        logoColor:{
+            scrollY: 150,
+            primary: "text-amber-800",
+            alternative: "text-white"
+        },
+        menuColor:{
+            scrollY: 150,
+            primary: "text-amber-800",
+            alternative: "text-white"
+        }
+    }}
+>
+
+</Main>
