@@ -9,6 +9,6 @@ import image from "@astrojs/image";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), image()],
-  site: 'https://nefonfo.github.io',
-  base: '/AstroCoffee',
+  site: 'https://nefonfo.github.io/',
+  base: import.meta.env.DEV ? '/' : '/AstroCoffee',
 });
