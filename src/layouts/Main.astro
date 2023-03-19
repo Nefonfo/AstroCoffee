@@ -4,6 +4,8 @@ import NavBar, { NavPositionEnum, ScrollColorProps } from '../components/NavBar.
 
 import menuItems from '../fixtures/menuItems.json'
 
+import '../css/styles.css';
+
 export interface NavBarStyles {
     navPosition: NavPositionEnum,
     navColor: ScrollColorProps,
@@ -33,10 +35,10 @@ const { title, navBarStyles, metaDescription } = Astro.props
     }
     <title>Astro Coffee - {title}</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Lato:wght@100;300;400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Gloock&display=swap');
     </style>
 </head>
-<body>
+<body class="bg-zinc-900">
     <NavBar 
         menuItems={menuItems} 
         {...navBarStyles}
