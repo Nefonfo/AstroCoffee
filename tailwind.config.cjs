@@ -7,8 +7,7 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				'sans': ['Lato', defaultTheme.fontFamily.sans],
-        		'serif': ['Arvo', defaultTheme.fontFamily.serif],
-				'mono': ['Gloock', defaultTheme.fontFamily.mono]
+				'serif': ['Gloock', defaultTheme.fontFamily.mono]
 			}
 		},
 	},
