@@ -1,4 +1,0 @@
-.hero-header {
-    @apply font-serif text-4xl md:text-6xl;
-    @apply text-yellow-600;
-}

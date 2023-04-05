@@ -1,0 +1,54 @@
+
+.box-card {
+    --p: 100%;
+    --side: left;
+    @apply grow min-h-[30rem] px-4 py-2 flex flex-wrap items-end justify-end;
+    @apply cursor-pointer;
+    background: linear-gradient(theme('colors.yellow.600') 0 0) var(--side) / var(--p, 0) no-repeat;
+    transition: .5s, background-position 0s;
+
+    &:hover {
+        --p: 0%;
+        background-position: right;
+
+        .box-card-content {
+            @apply opacity-100;
+        }
+
+        .box-card-header {
+            @apply text-yellow-600;
+        }
+    }
+
+    &.alternative-box {
+        --p: 0%;
+        --side: right;
+
+        &:hover {
+            --p: 100%;
+
+            .box-card-header {
+                @apply text-zinc-900;
+            }
+        }
+
+        .box-card-header {
+            @apply text-yellow-600;
+        }
+
+        .box-card-content {
+            @apply text-zinc-900;
+        }
+    }
+
+    .box-card-header {
+        @apply text-zinc-900 ;
+        @apply font-serif font-bold text-7xl;
+        @apply transition-colors ease-in-out duration-200;
+    }
+
+    .box-card-content {
+        @apply font-light text-white text-2xl leading-relaxed italic transition-opacity ease-in-out duration-500;
+        @apply opacity-0;
+    }
+}
