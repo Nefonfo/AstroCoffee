@@ -3,10 +3,11 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "astro dev",
+		"dev": "astro dev --host",
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"see-build": "rm -rf ./dist && astro build && astro preview --host",
 		"astro": "astro"
 	},
 	"dependencies": {
