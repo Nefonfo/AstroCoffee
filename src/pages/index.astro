@@ -1,9 +1,13 @@
 ---
 import {Picture} from '@astrojs/image/components'
-import {Main} from '../layouts/index.astro'
-import {NavPositionEnum, Header} from '../components/index.astro'
-import {BoxCardWrapper} from '../components/cards/wrappers/index.astro'
-import {BoxCard, InfoCard, SubscribeCard} from '../components/cards/index.astro'
+import Main from '../layouts/Main.astro'
+import {NavPositionEnum} from '../components/NavBar.astro'
+
+import Header from '../components/Header.astro'
+import BoxCard from '../components/cards/BoxCard.astro'
+import InfoCard from '../components/cards/InfoCard.astro'
+import SubscribeCard from '../components/cards/SubscribeCard.astro'
+import BoxCardWrapper from '../components/cards/wrappers/BoxCardWrapper.astro'
 
 import Testimonials from '../components/Testimonials/Testimonials.tsx'
 import TestimonialsData from '../fixtures/testimonials.json'

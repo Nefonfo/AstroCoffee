@@ -6,8 +6,6 @@ export const Stars = ({rate}: StarsProps) => {
 	const starsFilled = Math.floor(rate)
 	const starsEmpty = 5 - starsFilled
 
-	console.log({starsFilled, starsEmpty})
-
 	return (
 		<div className="flex gap-x-2">
 			{
