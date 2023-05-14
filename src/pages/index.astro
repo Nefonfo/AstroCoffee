@@ -1,136 +1,150 @@
 ---
-import { Picture } from "@astrojs/image/components";
-import { NavPositionEnum } from "../components/NavBar.astro";
-import Main from "../layouts/Main.astro";
-import BoxCard from "../components/cards/BoxCard.astro";
-import SubscribeCard from "../components/cards/SubscribeCard.astro";
+import {Picture} from '@astrojs/image/components'
+import {Main} from '../layouts/index.astro'
+import {NavPositionEnum, Header} from '../components/index.astro'
+import {BoxCardWrapper} from '../components/cards/wrappers/index.astro'
+import {BoxCard, InfoCard, SubscribeCard} from '../components/cards/index.astro'
+
+import Testimonials from '../components/Testimonials/Testimonials.tsx'
+import TestimonialsData from '../fixtures/testimonials.json'
 ---
-<Main 
-    title="Welcome"
-    metaDescription="This is a website part of Nefonfo's portafolio. Inspired in a Coffee Shop."
-    navBarStyles={{
-        navPosition: NavPositionEnum.fixed,
-        navColor:{
-            scrollY: 150,
-            primary: "bg-zinc-900",
-            alternative: "bg-transparent"
-        },
-        logoColor:{
-            scrollY: 150,
-            primary: "text-yellow-600",
-            alternative: "text-white"
-        },
-        menuColor:{
-            scrollY: 150,
-            primary: "text-yellow-600",
-            alternative: "text-white"
-        }
-    }}
+<Main
+        title="Welcome"
+        metaDescription="This is a website part of Nefonfo's portafolio. Inspired in a Coffee Shop."
+        navBarStyles={{
+			navPosition: NavPositionEnum.fixed,
+			navColor: {
+				scrollY: 150,
+				primary: 'bg-zinc-900',
+				alternative: 'bg-transparent',
+			},
+			logoColor: {
+				scrollY: 150,
+				primary: 'text-yellow-600',
+				alternative: 'text-white',
+			},
+			menuColor: {
+				scrollY: 150,
+				primary: 'text-yellow-600',
+				alternative: 'text-white',
+			},
+		}}
 >
     <div class="group relative w-full h-[80vh] pt-20">
-        <Picture 
-            class="absolute top-0 w-full h-[80vh] object-cover grayscale-0 group-hover:grayscale transition-all ease-out duration-700" 
-            src={import('../images/coffee-cup.jpg')}
-            alt="Coffee Banner"
-            widths={[600, 1200, 1800]}
-            sizes="(max-width: 800px) 100vw, 800px"
-            format='webp'
+        <Picture
+                class="absolute top-0 w-full h-[80vh] object-cover grayscale-0 group-hover:grayscale transition-all ease-out duration-700"
+                src={import('../images/coffee-cup.jpg')}
+                alt="Coffee Banner"
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format="webp"
         />
         <div class="font-serif relative h-full w-full flex flex-col items-center justify-center gap-y-10">
-            <h1 class="text-center text-white text-5xl md:text-7xl group-hover:text-yellow-300 transition-colors ease-in-out duration-700">The Real</h1>
-            <h2 class="text-center text-white text-7xl md:text-9xl group-hover:text-yellow-300 transition-colors ease-in-out duration-700">Coffee</h2>
+            <h1 class="text-center text-white text-5xl md:text-7xl group-hover:text-yellow-300 transition-colors ease-in-out duration-700">
+                The Real</h1>
+            <h2 class="text-center text-white text-7xl md:text-9xl group-hover:text-yellow-300 transition-colors ease-in-out duration-700">
+                Coffee</h2>
         </div>
     </div>
     <div class="w-full px-4 md:px-8 lg:px-12 my-16 flex flex-wrap lg:flex-nowrap gap-x-12 gap-y-10 items-center justify-between">
         <div class="order-2 md:order-1 w-full lg:grow flex flex-wrap flex-col gap-y-4 items-center md:items-start">
             <h1 class="secondary-header text-yellow-600">Enjoy Coffee With Us</h1>
-            <p class="text-white text-xl leading-loose text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, impedit? Nisi tempore eaque nobis, explicabo commodi eius incidunt reprehenderit voluptas quaerat, possimus hic maiores doloremque magnam dolorum eos. Praesentium, ipsam.</p>
-            <a href="" class="btn btn-yellow">View More</a>
+            <p class="text-white text-xl leading-loose text-justify">
+                Welcome to our cozy coffee shop, where the art of coffee comes to life. Savor every sip of our
+                meticulously brewed blends, crafted with passion and precision. Immerse yourself in the inviting
+                ambiance, where conversations flow and moments of bliss unfold. Come, indulge in the aroma and flavors
+                that awaken your senses. Join us and discover the true joy of enjoying coffee together.
+            </p>
+            <a href="about-us" class="btn btn-yellow">View More</a>
         </div>
         <div class="order-1 md:order-2 w-full lg:shrink lg:max-w-3xl grid grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="grid gap-4">
                 <div class="overflow-hidden">
                     <Picture
-                        class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
-                        src={import('../images/gallery/coffee-gallery-1.jpg')}
-                        alt="Coffee Gallery 1"
-                        widths={[600, 1200, 1800]}
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        format='webp'
+                            class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
+                            src={import('../images/gallery/coffee-gallery-1.jpg')}
+                            alt="Coffee Gallery 1"
+                            widths={[600, 1200, 1800]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            format="webp"
                     />
                 </div>
                 <div class="overflow-hidden">
                     <Picture
-                        class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
-                        src={import('../images/gallery/coffee-gallery-2.jpg')}
-                        alt="Coffee Gallery 2"
-                        widths={[600, 1200, 1800]}
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        format='webp'
+                            class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
+                            src={import('../images/gallery/coffee-gallery-2.jpg')}
+                            alt="Coffee Gallery 2"
+                            widths={[600, 1200, 1800]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            format="webp"
                     />
                 </div>
             </div>
             <div class="hidden lg:grid gap-4">
                 <div class="overflow-hidden">
                     <Picture
-                        class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
-                        src={import('../images/gallery/coffee-gallery-3.jpg')}
-                        alt="Coffee Gallery 3"
-                        widths={[600, 1200, 1800]}
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        format='webp'
+                            class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
+                            src={import('../images/gallery/coffee-gallery-3.jpg')}
+                            alt="Coffee Gallery 3"
+                            widths={[600, 1200, 1800]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            format="webp"
                     />
                 </div>
                 <div class="overflow-hidden">
                     <Picture
-                        class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
-                        src={import('../images/gallery/coffee-gallery-4.jpg')}
-                        alt="Coffee Gallery 4"
-                        widths={[600, 1200, 1800]}
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        format='webp'
+                            class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
+                            src={import('../images/gallery/coffee-gallery-4.jpg')}
+                            alt="Coffee Gallery 4"
+                            widths={[600, 1200, 1800]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            format="webp"
                     />
                 </div>
             </div>
             <div class="grid gap-4">
                 <div class="overflow-hidden">
                     <Picture
-                        class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
-                        src={import('../images/gallery/coffee-gallery-5.jpg')}
-                        alt="Coffee Gallery 5"
-                        widths={[600, 1200, 1800]}
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        format='webp'
+                            class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
+                            src={import('../images/gallery/coffee-gallery-5.jpg')}
+                            alt="Coffee Gallery 5"
+                            widths={[600, 1200, 1800]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            format="webp"
                     />
                 </div>
                 <div class="overflow-hidden">
                     <Picture
-                        class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
-                        src={import('../images/gallery/coffee-gallery-6.jpg')}
-                        alt="Coffee Gallery 6"
-                        widths={[600, 1200, 1800]}
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        format='webp'
+                            class="h-auto max-w-full scale-100 hover:scale-125 transition-transform ease-in-out duration-500"
+                            src={import('../images/gallery/coffee-gallery-6.jpg')}
+                            alt="Coffee Gallery 6"
+                            widths={[600, 1200, 1800]}
+                            sizes="(max-width: 800px) 100vw, 800px"
+                            format="webp"
                     />
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-full mt-8 mb-12">
-        <h1 class="primary-header text-white">Our Philosophy</h1>
-    </div>
-    <div class="w-full flex flex-wrap lg:flex-nowrap gap-x-4 gap-y-4 px-4 md:px-8 py-6">
-        <BoxCard title='Textures' description='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque nam perferendis eos nisi blanditiis nostrum rem.' />
-        <BoxCard title='Flavor' description='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque nam perferendis eos nisi blanditiis nostrum rem.' />
-        <BoxCard title='Essence' description='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque nam perferendis eos nisi blanditiis nostrum rem.' />
-    </div>
-    <div class="w-full py-12 px-6 md:px-12 lg:px-32 flex flex-wrap lg:flex-nowrap items-center justify-evenly gap-y-8 gap-x-12">
-        <div class="md:max-w-3xl grow order-2 lg:order-1 flex flex-col gap-y-4 items-center md:items-start">
-            <h1 class="secondary-header text-yellow-600">The Pure Coffee</h1>
-            <p class="text-white text-xl leading-loose text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic, impedit? Nisi tempore eaque nobis, explicabo commodi eius incidunt reprehenderit voluptas quaerat, possimus hic maiores doloremque magnam dolorum eos. Praesentium, ipsam.</p>
-            <a href="" class="btn btn-yellow">View More</a>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 w-[10rem] md:w-[15rem] lg:w-[25rem] order-1 lg:order-2 text-yellow-600 icon icon-tabler icon-tabler-coffee" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <Header title="Our Philosophy"/>
+    <BoxCardWrapper>
+        <BoxCard title="Aromatica"
+                 description="Immerse yourself in the captivating aromas of our expertly brewed coffees, awakening your senses and inspiring moments of blissful indulgence."/>
+        <BoxCard title="FlavorAlchemy"
+                 description="Experience the magic of flavor transformation as our skilled baristas combine premium beans into extraordinary concoctions that tantalize your taste buds."/>
+        <BoxCard title="BeanSpirations"
+                 description="Let the rich flavors and enticing aromas of our thoughtfully curated coffees ignite your creativity and spark a journey of inspiration with every sip."/>
+    </BoxCardWrapper>
+    <InfoCard
+            title="The Pure Coffee"
+            description="Experience the epitome of exceptional coffee with our hand-cultivated beans from Veracruz. Carefully selected and nurtured with unwavering dedication, our coffee embodies purity, offering a robust and invigorating flavor profile. Each sip entices with its rich bitterness and unparalleled strength, leaving a lasting impression. Indulge in the confidence that comes with knowing you're savoring a meticulously crafted brew. Unlock the desire to embark on a sensory journey and elevate your coffee experience to new heights. Try our Veracruz coffee and taste the exquisite essence of excellence."
+            buttonText="View More"
+            buttonHref="#!"
+    >
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="shrink-0 w-[10rem] md:w-[15rem] lg:w-[25rem] order-1 lg:order-2 text-yellow-600 icon icon-tabler icon-tabler-coffee"
+             viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round"
+             stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path d="M3 14c.83 .642 2.077 1.017 3.5 1c1.423 .017 2.67 -.358 3.5 -1c.83 -.642 2.077 -1.017 3.5 -1c1.423 -.017 2.67 .358 3.5 1"></path>
             <path d="M8 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2"></path>
@@ -138,6 +152,24 @@ import SubscribeCard from "../components/cards/SubscribeCard.astro";
             <path d="M3 10h14v5a6 6 0 0 1 -6 6h-2a6 6 0 0 1 -6 -6v-5z"></path>
             <path d="M16.746 16.726a3 3 0 1 0 .252 -5.555"></path>
         </svg>
-    </div>
-    <SubscribeCard />
+    </InfoCard>
+    <Header title="Testimonials"/>
+    <Testimonials client:visible testimonials={TestimonialsData}/>
+    <InfoCard
+            title="Visit Us"
+            description="Discover a sanctuary of relaxation and exquisite coffee at our multiple locations across Mexico City. Immerse yourself in our inviting ambiance, where tranquility and exceptional brews meet. Indulge in the perfect blend of flavors while you unwind and soak in the serene atmosphere. Join us at our coffee haven and experience the ultimate destination for a blissful and relaxed coffee experience. Visit us today and let us whisk you away to a world of pure delight."
+            buttonText="See Locations"
+            buttonHref="#!"
+            inverseOrder={true}
+    >
+        <Picture
+                class="h-auto max-w-full rotate-0 hover:rotate-2 transition-transform ease-in-out duration-500"
+                src={import('../images/coffee-shop.jpg')}
+                alt="Coffee Gallery 3"
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format="webp"
+        />
+    </InfoCard>
+    <SubscribeCard/>
 </Main>

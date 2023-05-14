@@ -1,27 +1,44 @@
 ---
-import { NavPositionEnum } from "../components/NavBar.astro";
-import Main from "../layouts/Main.astro"
+import {Picture} from '@astrojs/image/components'
+import {Main} from '../layouts/index.astro'
+import {NavPositionEnum} from '../components/NavBar.astro'
+import {SubscribeCard} from '../components/cards/index.astro'
 ---
-<Main 
-    title="Sobre Nosotros"
-    navBarStyles={{
-        navPosition: NavPositionEnum.static,
-        navColor:{
-            scrollY: 150,
-            primary: "bg-white",
-            alternative: "bg-red-600"
-        },
-        logoColor:{
-            scrollY: 150,
-            primary: "text-amber-800",
-            alternative: "text-white"
-        },
-        menuColor:{
-            scrollY: 150,
-            primary: "text-amber-800",
-            alternative: "text-white"
-        }
-    }}
+<Main
+        title="Sobre Nosotros"
+        navBarStyles={{
+			navPosition: NavPositionEnum.fixed,
+			navColor: {
+				scrollY: 150,
+				primary: 'bg-zinc-900',
+				alternative: 'bg-transparent',
+			},
+			logoColor: {
+				scrollY: 150,
+				primary: 'text-amber-800',
+				alternative: 'text-yellow-600',
+			},
+			menuColor: {
+				scrollY: 150,
+				primary: 'text-amber-800',
+				alternative: 'text-white',
+			},
+		}}
 >
+    <div class="relative w-full h-[60vh] pt-20">
+        <Picture
+                class="absolute brightness-50 top-0 w-full h-[60vh] object-cover"
+                src={import('../images/about-us-header.jpg')}
+                alt="About Us Banner"
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format="webp"
+        />
+        <div class="font-serif relative h-full w-full flex flex-col items-center justify-center">
+            <h1 class="font-serif text-6xl md:text-8xl text-white">About Us</h1>
+            <hr class="mt-4 w-64 h-1 mx-auto bg-yellow-600 border-0">
+        </div>
+    </div>
 
+    <SubscribeCard/>
 </Main>

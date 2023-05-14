@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "comment": "The coffee at this shop is simply amazing! I have never tasted such rich and flavorful blends before. Highly recommended!",
+    "rate": 5
+  },
+  {
+    "id": 2,
+    "name": "Emily Smith",
+    "comment": "This coffee shop is a hidden gem! The quality of their coffee is outstanding, and the flavors are always perfectly balanced. The staff is friendly and attentive. I look forward to my daily coffee fix here. Five stars!",
+    "rate": 5
+  },
+  {
+    "id": 3,
+    "name": "Michael Johnson",
+    "comment": "I stumbled upon this coffee shop during my morning walk, and it has become my go-to place. The coffee is consistently excellent, and the cozy ambiance is perfect for relaxing. The baristas are skilled and always make the perfect cup. Highly recommend!",
+    "rate": 4
+  },
+  {
+    "id": 4,
+    "name": "Sarah Wilson",
+    "comment": "I'm a self-proclaimed coffee aficionado, and this shop has exceeded my expectations. The aroma that greets you as you walk in is intoxicating, and the coffee itself is a true work of art. The baristas' attention to detail is commendable. Five stars all the way!",
+    "rate": 5
+  },
+  {
+    "id": 5,
+    "name": "David Brown",
+    "comment": "This coffee shop has the best coffee in town! The beans are sourced from around the world, resulting in a diverse and exciting range of flavors. The knowledgeable staff is always ready to offer recommendations. You won't be disappointed. Four stars from me!",
+    "rate": 4
+  },
+  {
+    "id": 6,
+    "name": "Jessica Davis",
+    "comment": "The coffee at this shop is exceptional. Each sip is like a symphony of flavors dancing on my taste buds. The cozy atmosphere and friendly staff make it my favorite spot to catch up with friends over a cup of Joe. Highly recommended! Five stars!",
+    "rate": 5
+  },
+  {
+    "id": 7,
+    "name": "Christopher Thompson",
+    "comment": "I've visited numerous coffee shops, but this one stands out from the rest. The attention to detail in the brewing process is evident in every cup. The result is a smooth and aromatic coffee that never disappoints. Four stars for an incredible experience!",
+    "rate": 4
+  },
+  {
+    "id": 8,
+    "name": "Sophia Martinez",
+    "comment": "I'm a coffee lover, and this shop has become my sanctuary. The coffee is consistently excellent, and the staff is always friendly and welcoming. The comfortable seating and cozy ambiance make it the perfect place to relax and enjoy a cup of their delicious brew. Five stars!",
+    "rate": 5
+  },
+  {
+    "id": 9,
+    "name": "Matthew Anderson",
+    "comment": "The coffee at this shop is top-notch! From the first sip to the last, it's a flavor journey that leaves you craving more. The friendly baristas go above and beyond to ensure you have a memorable experience. Highly recommended. Five stars!",
+    "rate": 5
+  }
+]

@@ -1,20 +1,20 @@
 ---
 export interface Props {
-    title: string,
-    description?: string,
-    alternative?: boolean
+	title: string,
+	description?: string,
+	alternative?: boolean
 }
 
-const { title, description, alternative=false } = Astro.props
+const {title, description, alternative = false} = Astro.props
 ---
 
-<div class={`box-card${alternative ? ' alternative-box': ''}`}>
-    {description && (
-        <p class='box-card-content'>
-            "{description}"
-        </p>
-    )}
-    <h1 class='box-card-header'>
-        {title}
+<div class={`box-card${alternative ? ' alternative-box' : ''}`}>
+	{description && (
+            <p class="box-card-content">
+                "{description}"
+            </p>
+	)}
+    <h1 class="box-card-header">
+		{title}
     </h1>
 </div>

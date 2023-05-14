@@ -1,25 +1,23 @@
 ---
-import Footer from '../components/Footer.astro'
-import NavBar, { NavPositionEnum, ScrollColorProps } from '../components/NavBar.astro'
-
+import {NavBar, NavPositionEnum, ScrollColorProps, Footer} from '../components/index.astro'
 import menuItems from '../fixtures/menuItems.json'
 
-import '../css/styles.pcss';
+import '../css/styles.pcss'
 
 export interface NavBarStyles {
-    navPosition: NavPositionEnum,
-    navColor: ScrollColorProps,
-    logoColor: ScrollColorProps,
-    menuColor: ScrollColorProps
+	navPosition: NavPositionEnum,
+	navColor: ScrollColorProps,
+	logoColor: ScrollColorProps,
+	menuColor: ScrollColorProps
 }
 
 export interface Props {
-    title: string,
-    metaDescription?: string
-    navBarStyles: NavBarStyles 
+	title: string,
+	metaDescription?: string
+	navBarStyles: NavBarStyles
 }
 
-const { title, navBarStyles, metaDescription } = Astro.props
+const {title, navBarStyles, metaDescription} = Astro.props
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -28,22 +26,22 @@ const { title, navBarStyles, metaDescription } = Astro.props
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favicon.svg">
-    {
-        metaDescription && (
-            <meta name="description" content={metaDescription}>
-        )
-    }
+	{
+		metaDescription && (
+                    <meta name="description" content={metaDescription}>
+		)
+	}
     <title>Astro Coffee - {title}</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Gloock&display=swap');
     </style>
 </head>
 <body class="bg-zinc-900">
-    <NavBar 
-        menuItems={menuItems} 
-        {...navBarStyles}
-    />
-    <slot />
-    <Footer />
+<NavBar
+        menuItems={menuItems}
+		{...navBarStyles}
+/>
+<slot/>
+<Footer/>
 </body>
 </html>

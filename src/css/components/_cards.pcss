@@ -1,5 +1,6 @@
 
 .box-card {
+    width: 100%;
     --p: 100%;
     --side: left;
     @apply grow min-h-[30rem] px-4 py-2 flex flex-wrap items-end justify-end;
@@ -43,12 +44,12 @@
 
     .box-card-header {
         @apply text-zinc-900 ;
-        @apply font-serif font-bold text-7xl;
+        @apply font-serif font-bold text-4xl md:text-5xl lg:text-7xl;
         @apply transition-colors ease-in-out duration-200;
     }
 
     .box-card-content {
-        @apply font-light text-white text-2xl leading-relaxed italic transition-opacity ease-in-out duration-500;
+        @apply font-light text-white text-xl md:text-2xl leading-relaxed italic transition-opacity ease-in-out duration-500;
         @apply opacity-0;
     }
 }

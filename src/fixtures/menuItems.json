@@ -1,22 +1,22 @@
 [
-    {
-        "name": "Home",
-        "link": ""
-    },
-    {
-        "name": "About Us",
-        "link": "about-us"
-    },
-    {
-        "name": "Menu",
-        "link": "menu"
-    },
-    {
-        "name": "Stores",
-        "link": "stores"
-    },
-    {
-        "name": "Contact Us",
-        "link": "contact-us"
-    }
+  {
+    "name": "Home",
+    "link": ""
+  },
+  {
+    "name": "About Us",
+    "link": "about-us"
+  },
+  {
+    "name": "Menu",
+    "link": "menu"
+  },
+  {
+    "name": "Stores",
+    "link": "stores"
+  },
+  {
+    "name": "Contact Us",
+    "link": "contact-us"
+  }
 ]
