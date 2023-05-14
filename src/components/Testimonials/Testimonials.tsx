@@ -34,6 +34,7 @@ const Testimonials = ({testimonials}: TestimonialsProps) => {
 					</svg>
 				</button>
 				<Swiper
+					autoplay={{ delay: 3000, disableOnInteraction: false }}
 					onSwiper={(instance: SwiperCore) => swiperRef.current = instance}
 					slidesPerView={1}
 					loop={true}
