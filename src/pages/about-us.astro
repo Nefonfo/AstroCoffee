@@ -46,17 +46,31 @@ import BoxCardWrapper from '../components/cards/wrappers/BoxCardWrapper.astro'
     </div>
     <Header title="Our Mission"/>
     <SimpleCard
-            image="../../images/coffee-toast.jpg"
             content="Brew moments of warmth and connection, one cup at a time. We strive to create a welcoming space where exceptional coffee, community, and creativity come together to inspire and uplift."
-            altName="Our Mission Card"
-    />
+    >
+        <Picture
+                class="w-full max-w-3xl grayscale-0 hover:grayscale rotate-0 hover:rotate-2 transition-all ease-in-out duration-700"
+                src={import('../images/coffee-toast.jpg')}
+                alt="Mission Card Image"
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format="webp"
+        />
+    </SimpleCard>
     <Header title="Our Vision"/>
     <SimpleCard
-            image="../../images/coffee-machine.jpg"
             content="Be a cherished destination where coffee enthusiasts gather to experience the perfect blend of flavors, craftsmanship, and warmth. We aim to inspire and ignite a passion for coffee, creating memorable moments that elevate the coffee culture in our community."
-            altName="Our Mission Card"
             inverse={true}
-    />
+    >
+        <Picture
+                class="w-full max-w-3xl grayscale-0 hover:grayscale rotate-0 hover:rotate-2 transition-all ease-in-out duration-700"
+                src={import('../images/coffee-machine.jpg')}
+                alt="Mission Card Image"
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format="webp"
+        />
+    </SimpleCard>
     <ElegantHeader title="Our Values"/>
     <BoxCardWrapper>
         <BoxCard title="Quality"
