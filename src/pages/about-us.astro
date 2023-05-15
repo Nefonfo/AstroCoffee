@@ -1,8 +1,13 @@
 ---
 import {Picture} from '@astrojs/image/components'
 import Main from '../layouts/Main.astro'
+import Header from '../components/Header.astro'
+import BoxCard from '../components/cards/BoxCard.astro'
 import {NavPositionEnum} from '../components/NavBar.astro'
+import SimpleCard from '../components/cards/SimpleCard.astro'
+import ElegantHeader from '../components/ElegantHeader.astro'
 import SubscribeCard from '../components/cards/SubscribeCard.astro'
+import BoxCardWrapper from '../components/cards/wrappers/BoxCardWrapper.astro'
 ---
 <Main
         title="Sobre Nosotros"
@@ -10,18 +15,18 @@ import SubscribeCard from '../components/cards/SubscribeCard.astro'
 			navPosition: NavPositionEnum.fixed,
 			navColor: {
 				scrollY: 150,
-				primary: 'bg-zinc-900',
+				primary: 'bg-yellow-600',
 				alternative: 'bg-transparent',
 			},
 			logoColor: {
 				scrollY: 150,
-				primary: 'text-amber-800',
+				primary: 'text-zinc-900',
 				alternative: 'text-yellow-600',
 			},
 			menuColor: {
 				scrollY: 150,
-				primary: 'text-amber-800',
-				alternative: 'text-white',
+				primary: 'text-zinc-900',
+				alternative: 'text-yellow-600',
 			},
 		}}
 >
@@ -39,6 +44,33 @@ import SubscribeCard from '../components/cards/SubscribeCard.astro'
             <hr class="mt-4 w-64 h-1 mx-auto bg-yellow-600 border-0">
         </div>
     </div>
-
+    <Header title="Our Mission"/>
+    <SimpleCard
+            image="../../images/coffee-toast.jpg"
+            content="Brew moments of warmth and connection, one cup at a time. We strive to create a welcoming space where exceptional coffee, community, and creativity come together to inspire and uplift."
+            altName="Our Mission Card"
+    />
+    <Header title="Our Vision"/>
+    <SimpleCard
+            image="../../images/coffee-machine.jpg"
+            content="Be a cherished destination where coffee enthusiasts gather to experience the perfect blend of flavors, craftsmanship, and warmth. We aim to inspire and ignite a passion for coffee, creating memorable moments that elevate the coffee culture in our community."
+            altName="Our Mission Card"
+            inverse={true}
+    />
+    <ElegantHeader title="Our Values"/>
+    <BoxCardWrapper>
+        <BoxCard title="Quality"
+                 description="We prioritize sourcing the finest beans and ingredients to deliver an exceptional coffee experience, ensuring every cup is a delightful indulgence."
+                 alternative={true}
+        />
+        <BoxCard title="Sustainability"
+                 description="We are committed to reducing our environmental impact through responsible sourcing, eco-friendly practices, and promoting reusable alternatives."
+                 alternative={true}
+        />
+        <BoxCard title="Community"
+                 description="We foster a sense of belonging by creating a welcoming space where people connect, collaborate, and share their love for coffee, creating lasting relationships."
+                 alternative={true}
+        />
+    </BoxCardWrapper>
     <SubscribeCard/>
 </Main>

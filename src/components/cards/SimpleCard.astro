@@ -1,0 +1,29 @@
+---
+import {Picture} from '@astrojs/image/components'
+
+export interface Props {
+	image: string,
+	content: string,
+	altName: string,
+	inverse: boolean
+}
+
+const {content, image, altName, inverse = false} = Astro.props
+---
+<div class="w-full flex flex-col md:flex-row items-center justify-around py-6 px-3 md:px-12 gap-x-6 gap-y-4">
+    <div class={`order-2 ${inverse ? 'md:order-2' : 'md:order-1'} w-full max-w-4xl`}>
+        <h3 class={`text-xl ${inverse ? 'text-right' : 'text-left'} md:text-2xl lg:text-3xl text-white font-light italic leading-loose`}>
+			{content}
+        </h3>
+    </div>
+    <div class=`order-1 ${inverse ? 'md:order-1 justify-start' : 'md:order-2 justify-end'} grow flex`>
+        <Picture
+                class={`w-full max-w-3xl grayscale-0 hover:grayscale rotate-0 hover:rotate-2 transition-all ease-in-out duration-700`}
+                src={import(image)}
+                alt={altName}
+                widths={[600, 1200, 1800]}
+                sizes="(max-width: 800px) 100vw, 800px"
+                format="webp"
+        />
+    </div>
+</div>
