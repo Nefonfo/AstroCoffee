@@ -45,12 +45,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site)
         {
             menuItems.map(({name, link}) => {
 
-                const menuLink = import.meta.env.BASE_URL+link
+                let menuLink = import.meta.env.BASE_URL+link
+                menuLink = (menuLink.slice(-1) !== '/') ? menuLink + '/' : menuLink
 
                 return (
                     <li>
                         <a 
-                            class={`text-lg ${menuLink === canonicalUrl.pathname ? 'font-bold underline' : 'font-light hover:font-bold'} transition-all ease-in-out duration-300`} 
+                            class={`text-lg ${menuLink === canonicalUrl.pathname ? 'font-bold underline' : 'font-light hover:font-bold'} transition-all ease-in-out duration-300`}
                             href={menuLink}
                         >
                             {name}
